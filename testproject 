@@ -1,0 +1,159 @@
+---- topbar----
+import React from 'react';
+import './TopBar.css';
+
+function TopBar() {
+  return (
+    <div className="top-bar">
+      <div className="left-info">
+        <span><i className="fas fa-map-marker-alt"></i> Embassy Tech Village, Bangalore City</span>
+        <span><i className="fas fa-clock"></i> Daily: 8:00 AM - 10:00 PM</span>
+      </div>
+      <div className="right-info">
+        <span><i className="fas fa-phone"></i> +91 8191427309</span>
+        <span><i className="fas fa-envelope"></i> techietummy@restaurant.com</span>
+      </div>
+    </div>
+  );
+}
+
+export default TopBar;
+
+---navbar----
+import React from 'react';
+import './Navbar.css';
+
+function Navbar() {
+  return (
+    <nav className="navbar">
+      <div className="logo">
+        <img src="/logo.png" alt="Techie Tummy Restaurant" />
+      </div>
+      <ul className="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+      <div className="reserve-btn">
+        <button>Reserve a Table</button>
+      </div>
+    </nav>
+  );
+}
+
+export default Navbar;
+
+--------------///////------
+
+---APP.JS----
+import React from 'react';
+import './App.css';
+import TopBar from './components/TopBar';
+import Navbar from './components/Navbar';
+
+function App() {
+  return (
+    <div className="App">
+      <TopBar />
+      <hr className="thin-line" />
+      <Navbar />
+      <div className="main-content">
+        <h1>Debug your hunger here</h1>
+        <button className="menu-btn">View Our Menu</button>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+----app.csss----
+/* Top bar styles */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  font-size: 14px;
+}
+
+.left-info span, .right-info span {
+  margin-right: 20px;
+}
+
+/* Thin line */
+.thin-line {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  margin: 0;
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #111;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.reserve-btn button {
+  padding: 10px 20px;
+  background-color: #f4b400;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Main content styles */
+.main-content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/path-to-your-background-image.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+}
+
+.main-content h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.menu-btn {
+  padding: 15px 30px;
+  background-color: #f4b400;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+----index.js-----
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
