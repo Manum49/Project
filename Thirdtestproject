@@ -1,0 +1,124 @@
+import React from 'react';
+import './App.css';
+import TopBar from './components/TopBar';
+import Navbar from './components/Navbar';
+
+function App() {
+  return (
+    <div className="App">
+      {/* TopBar and Navbar */}
+      <TopBar />
+      <hr className="thin-line" />
+      <Navbar />
+
+      {/* First Section */}
+      <div className="main-content">
+        <h1>Debug your hunger here</h1>
+        <button className="menu-btn">View Our Menu</button>
+      </div>
+
+      {/* Second Section */}
+      <div className="second-section">
+        <h1 className="section-title">Discover Our Specialties</h1>
+        <div className="menu-gallery">
+          <div className="menu-item">
+            <img src="/images/breakfast.jpg" alt="Breakfast" />
+            <h2>Breakfast</h2>
+            <p>Start your day with a delightful breakfast.</p>
+          </div>
+
+          <div className="menu-item">
+            <img src="/images/cafe.jpg" alt="Cafe" />
+            <h2>Cafe</h2>
+            <p>Enjoy our signature cafe brews and bites.</p>
+          </div>
+
+          <div className="menu-item">
+            <img src="/images/meals.jpg" alt="Meals" />
+            <h2>Meals</h2>
+            <p>Hearty meals to satisfy your hunger.</p>
+          </div>
+        </div>
+
+        {/* View Menu Button */}
+        <div className="view-menu-btn">
+          <button>View Full Menu</button>
+        </div>
+      </div>
+
+      {/* Third Section: About Us */}
+      <div className="about-us-section">
+        <div className="about-content">
+          <h1>About Us</h1>
+          <p>
+            Welcome to Techie Tummy Restaurant! We bring you a unique dining experience with a touch of technology. Our mission is to offer delicious meals made from the finest ingredients, all while providing an innovative environment that is unlike any other.
+          </p>
+          <p>
+            Whether you're here for a quick coffee or a hearty meal, we’ve got something to satisfy everyone’s taste. Come experience our fusion of tech and tummy, where food meets innovation.
+          </p>
+        </div>
+        <div className="about-image">
+          <img src="/images/about-us.jpg" alt="About Us" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+(------css----)
+/* About Us Section */
+.about-us-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 20px;
+  background-color: #f2f2f2; /* Light gray background for contrast */
+  height: 100vh; /* Full-page height */
+}
+
+.about-content {
+  flex: 1; /* Takes up the left half of the screen */
+  padding-right: 30px; /* Adds space between content and image */
+}
+
+.about-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #555;
+}
+.about-image {
+  flex: 1; /* Takes up the right half of the screen */
+  text-align: center;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Optional: Rounded corners for the image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+---------
+
+
+@media (max-width: 768px) {
+  .about-us-section {
+    flex-direction: column; /* Stack the content vertically on smaller screens */
+    text-align: center;
+  }
+
+  .about-content {
+    padding-right: 0; /* Remove padding on small screens */
+    margin-bottom: 30px; /* Add some space below the text */
+  }
+
+  .about-image img {
+    width: 100%;
+  }
+}
