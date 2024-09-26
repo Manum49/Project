@@ -148,3 +148,30 @@ export default App;
 
 ------+-
 We serve energizing food and drinks crafted for everyone. Whether you're grabbing a quick bite or fueling up for a long day of innovation, we've got your back. Step into a space where tech meets taste, and every meal powers your day!
+
+
+
+
+.......
+
+.about-us-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.about-us-left {
+    flex: 1;
+    margin-right: 20px; /* Space between left and right */
+}
+
+.about-us-right {
+    flex: 1;
+}
+
+.about-us-right img {
+    width: 100%; /* Make image responsive */
+    height: auto;
+    border-radius: 8px; /* Optional: add rounded corners */
+}
