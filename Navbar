@@ -1,0 +1,60 @@
+import React, { useState, useEffect } from 'react';
+import './navbar.css'; // Your CSS file
+
+function Navbar() {
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const controlNavbar = () => {
+    if (window.scrollY > lastScrollY) {
+      // If scrolling down, hide the navbar
+      setShowNavbar(false);
+    } else {
+      // If scrolling up, show the navbar
+      setShowNavbar(true);
+    }
+    setLastScrollY(window.scrollY); // Update the last scroll position
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', controlNavbar);
+    return () => {
+      window.removeEventListener('scroll', controlNavbar);
+    };
+  }, [lastScrollY]);
+
+  return (
+    <nav className={`navbar ${showNavbar ? 'show' : 'hide'}`}>
+      {/* Your navbar content */}
+      <h1>My Navbar</h1>
+    </nav>
+  );
+}
+
+export default Navbar;
+
+
+css 
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  transition: top 0.3s ease; /* This creates the smooth effect */
+}
+
+.navbar.hide {
+  top: -80px; /* Hide by moving it above the viewport */
+}
+
+.navbar.show {
+  top: 0; /* Show the navbar */
+}
+
+.navbar h1 {
+  color: white;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.8);
+}
