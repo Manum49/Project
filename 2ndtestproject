@@ -1,0 +1,149 @@
+----appjs----
+import React from 'react';
+import './App.css';
+import TopBar from './components/TopBar';
+import Navbar from './components/Navbar';
+
+function App() {
+  return (
+    <div className="App">
+      {/* TopBar and Navbar */}
+      <TopBar />
+      <hr className="thin-line" />
+      <Navbar />
+
+      {/* First Section */}
+      <div className="main-content">
+        <h1>Debug your hunger here</h1>
+        <button className="menu-btn">View Our Menu</button>
+      </div>
+
+      {/* Second Section - Scroll Down */}
+      <div className="second-section">
+        <h1 className="section-title">Discover Our Specialties</h1>
+
+        <div className="menu-gallery">
+          <div className="menu-item">
+            <img src="/images/breakfast.jpg" alt="Breakfast" />
+            <h2>Breakfast</h2>
+            <p>Start your day with a delightful breakfast.</p>
+          </div>
+
+          <div className="menu-item">
+            <img src="/images/cafe.jpg" alt="Cafe" />
+            <h2>Cafe</h2>
+            <p>Enjoy our signature cafe brews and bites.</p>
+          </div>
+
+          <div className="menu-item">
+            <img src="/images/meals.jpg" alt="Meals" />
+            <h2>Meals</h2>
+            <p>Hearty meals to satisfy your hunger.</p>
+          </div>
+        </div>
+
+        {/* View Menu Button */}
+        <div className="view-menu-btn">
+          <button>View Full Menu</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+---appcss----
+/* First Section Styles */
+.main-content {
+  background-image: url('/path-to-your-background-image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* Full page height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-btn {
+  padding: 10px 20px;
+  background-color: #f4b400;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-btn:hover {
+  background-color: #ff9900;
+}
+
+/* Second Section Styles */
+.second-section {
+  padding: 100px 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+/* Title in the Second Section */
+.section-title {
+  font-size: 48px;
+  margin-bottom: 50px;
+}
+
+/* Menu Gallery - Three Pictures Side by Side */
+.menu-gallery {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* Individual Menu Items */
+.menu-item {
+  text-align: center;
+}
+
+.menu-item img {
+  width: 300px; /* Adjust the width of the images */
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.menu-item h2 {
+  margin-top: 15px;
+  font-size: 24px;
+}
+
+.menu-item p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Button Below the Pictures */
+.view-menu-btn {
+  margin-top: 50px;
+}
+
+.view-menu-btn button {
+  padding: 15px 30px;
+  background-color: #f4b400;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.view-menu-btn button:hover {
+  background-color: #ff9900;
+}
+
+------+-
