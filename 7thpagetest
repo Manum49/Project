@@ -114,3 +114,60 @@ export default NextPage;
 }
 ----
 Rustic Chicken Curry & Ragi Delight features tender chicken in a flavorful curry, served with healthy Ragi Delight made from finger millet(Ragi). This hearty dish is perfect for sharing and goodness, offering a mix of delicious taste and good nutrition.
+
+
+csssss
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100; /* ensures the navbar stays on top */
+  transition: background-color 0.3s ease; /* smooth transition effect */
+}
+
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.8); /* or any color you prefer */
+}
+
+
+
+
+js 
+
+
+import React, { useState, useEffect } from 'react';
+import './navbar.css'; // Your CSS file
+
+function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    if (offset > 50) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  let navbarClasses = ['navbar'];
+  if (scrolled) {
+    navbarClasses.push('scrolled');
+  }
+
+  return (
+    <nav className={navbarClasses.join(' ')}>
+      {/* Your navbar content */}
+    </nav>
+  );
+}
+
+export default Navbar;
