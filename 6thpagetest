@@ -1,0 +1,142 @@
+// ReservationContact.js
+import React from 'react';
+import './ReservationContact.css';
+
+const ReservationContact = () => {
+  return (
+    <div className="reservation-contact">
+      <div className="reservation-section">
+        <h2>Online Reservation</h2>
+        <p>Fill out the order form</p>
+        <form>
+          <label>Your Name</label>
+          <input type="text" placeholder="Your Name" />
+
+          <label>Your Phone Number</label>
+          <input type="text" placeholder="Your Phone Number" />
+
+          <label>Number of Persons</label>
+          <select>
+            {[...Array(7).keys()].map(i => (
+              <option key={i} value={i + 1}>{i + 1} Person</option>
+            ))}
+          </select>
+
+          <label>Date</label>
+          <input type="date" />
+
+          <label>Time</label>
+          <select>
+            {Array.from({ length: 28 }, (_, i) => i).map(i => (
+              <option key={i} value={`${8 + Math.floor(i / 2)}:${i % 2 === 0 ? '00' : '30'} AM`}>
+                {`${8 + Math.floor(i / 2)}:${i % 2 === 0 ? '00' : '30'} ${8 + Math.floor(i / 2) < 12 ? 'AM' : 'PM'}`}
+              </option>
+            ))}
+          </select>
+
+          <button type="submit">Book a Table</button>
+        </form>
+      </div>
+
+      <div className="contact-section">
+        <h2>Contact Us</h2>
+        <p>Booking Request</p>
+        <p>+91 8919427309</p>
+
+        <p>Location</p>
+        <p>Embassy tech village, Bangalore City</p>
+
+        <p>Break Time</p>
+        <p>Monday to Sunday: 8:00 am – 11:00 am</p>
+
+        <p>Lunch Time</p>
+        <p>Monday to Sunday: 12:00 pm – 4:00 pm</p>
+
+        <p>Dinner Time</p>
+        <p>Monday to Sunday: 5:00 pm – 10:00 pm</p>
+      </div>
+    </div>
+  );
+};
+
+export default ReservationContact;
+---css---
+
+.reservation-contact {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  color: #fff;
+}
+
+.reservation-section, .contact-section {
+  width: 45%;
+}
+
+.reservation-section h2, .contact-section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.reservation-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.reservation-section label {
+  margin: 10px 0 5px;
+}
+
+.reservation-section input, .reservation-section select {
+  padding: 10px;
+  margin-bottom: 15px;
+  background: #222;
+  border: 1px solid #444;
+  color: #fff;
+}
+
+.reservation-section button {
+  background-color: #d4af37;
+  color: black;
+  padding: 15px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.contact-section p {
+  margin: 10px 0;
+}
+-----
+---+-----
+
+js code----
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import HomePage from './pages/HomePage';
+import DeliciousMenu from './pages/DeliciousMenu';
+import ReservationContact from './pages/ReservationContact';
+
+function App() {
+  return (
+    <Router>
+      <div>
+        <Navbar />
+        <Switch>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/menu" component={DeliciousMenu} />
+          <Route path="/reservation-contact" component={ReservationContact} />
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
+
+// Navbar.js
+import { Link } from 'react-router-dom';
+
+<Link to="/reservation-contact">Reservation & Contact</Link>
